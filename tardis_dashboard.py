@@ -9,6 +9,7 @@ import time
 def load_data():
     return pd.read_csv("cleaned_dataset.csv")
 
+
 df = pd.read_csv("./cleaned_dataset.csv")
 df
 
