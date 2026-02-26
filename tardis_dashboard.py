@@ -11,8 +11,11 @@ df = pd.read_csv("./cleaned_dataset.csv")
 df = df.dropna(subset=["Gare de départ","Gare d'arrivée","year","month"])
 st.title("Delay distribution visualization")
 
+df["Date"] = pd.to_datetime(df["Date"])
+
 year =df['year'].unique()
 month = df["month"].unique()
+
 
 #ajoute une sidebar
 with st.sidebar:
@@ -50,19 +53,31 @@ st.title("Descriptive statistics panel")
 
 with st.sidebar:
     st.subheader("Descriptive statistics panel")
+    st.write("Date :",month,years)
 
+# Moyenne du retard moyen de tout les trains à l'arrivé
+average = round(df_filtered["Retard moyen de tous les trains à l'arrivée"].mean(),2) 
 
-average = df_filtered["Retard moyen de tous les trains à l'arrivée"].mean()   
-
-
+# Colonnes
 average_delays, total_trip, punctuality_rate = st.columns(3)
 with average_delays:
-    st.subheader("Average delay")
-    st.write("average delay in ",years,month)
-    average
+    average_delays.metric("Average delay",average,"Minutes","yellow", border=True)
     
 with total_trip:
-    st.subheader("Total trip")
-    
+    total_trip.metric("Total trip" ,len(df_filtered), "Trips" , "violet", border=True)
+
+#initalisation du seuil en minutes
+line  = 5 
+punctuality_trips = (df_filtered["Retard moyen de tous les trains à l'arrivée"]< line).sum()
+total_trips = len(df_filtered)
+# Calcul du %
+rate = round((punctuality_trips/total_trips) * 100,2)
+
 with punctuality_rate:
-    st.subheader("Punctuality rate")
+    punctuality_rate.metric("Punctuality rate",rate,"punctuality rate < 5 Minutes","orange",border=True)
+
+
+st.title("Prediction interface")
+
+with st.sidebar:
+    st.subheader("Prediction interface")
