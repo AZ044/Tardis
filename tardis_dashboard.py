@@ -22,6 +22,7 @@ with st.sidebar:
         "Select month",
         options=month
     )
+    
     st.write("You selected", month)
     years = st.select_slider(
        "Select a year",
