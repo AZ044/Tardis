@@ -1,8 +1,5 @@
 tardis
-#linear
-
-
 # Descision Tree
-arrival
-departure
-service
+arrival.pkl
+departure.pkl
+service.pkl
