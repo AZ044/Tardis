@@ -18,7 +18,7 @@ Interactive dashboard for visualizing train delay distributions and predicting a
 ### 1. Clone the repository
 
 ```bash
-git clone git@github.com:AZ044/Tardis.git
+git clone https://github.com/AZ044/Tardis.git
 cd B-DAT-200-NCE-2-1-tardis-2
 ```
 
