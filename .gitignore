@@ -1,5 +1,10 @@
-tardis
-# Descision Tree
+tardis/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.env
+
+# Decision Tree
 arrival.pkl
 departure.pkl
 service.pkl
