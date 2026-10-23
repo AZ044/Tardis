@@ -19,7 +19,7 @@ Interactive dashboard for visualizing train delay distributions and predicting a
 
 ```bash
 git clone https://github.com/AZ044/Tardis.git
-cd B-DAT-200-NCE-2-1-tardis-2
+cd Tardis
 ```
 
 ### 2. Create and activate a virtual environment
